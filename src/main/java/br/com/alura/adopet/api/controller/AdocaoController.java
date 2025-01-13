@@ -35,7 +35,6 @@ public class AdocaoController {
     public ResponseEntity<String> aprovar(@RequestBody @Valid AprovacaoAdocaoDto dto) {
         adocaoService.aprovar(dto);
         return ResponseEntity.ok().build();
-
     }
 
     @PutMapping("/reprovar")

@@ -46,15 +46,9 @@ public class AdocaoService {
         Tutor tutor = tutorRepository.getReferenceById(dto.idTutor());
 
         //chamar as validações
-
         validacoes.forEach(v -> v.validar(dto));
 
-        Adocao adocao = new Adocao();
-        adocao.setData(LocalDateTime.now());
-        adocao.setStatus(StatusAdocao.AGUARDANDO_AVALIACAO);
-        adocao.setPet(pet);
-        adocao.setTutor(tutor);
-        adocao.setMotivo(dto.motivo());
+        Adocao adocao = new Adocao(tutor, pet, dto.motivo());
 
         repository.save(adocao);
 

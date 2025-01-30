@@ -5,11 +5,13 @@ import br.com.alura.adopet.api.dto.CadastroTutorDto;
 import br.com.alura.adopet.api.exception.ValidacaoException;
 import br.com.alura.adopet.api.model.Tutor;
 import br.com.alura.adopet.api.repository.TutorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TutorService {
+    @Autowired
     private TutorRepository tutorRepository;
 
     public void cadastrar(CadastroTutorDto dto){
@@ -17,6 +19,7 @@ public class TutorService {
         if (jaCadastrado){
             throw new ValidacaoException("Dados já cadastrado para outro tutor!");
         }
+        tutorRepository.save(new Tutor(dto));
     }
 
     public void atualizar(AtualizacaoTutorDto dto){

@@ -5,15 +5,10 @@ import br.com.alura.adopet.api.dto.CadastrarAbrigoDto;
 import br.com.alura.adopet.api.dto.PetDto;
 import br.com.alura.adopet.api.exception.ValidacaoException;
 import br.com.alura.adopet.api.model.Abrigo;
-import br.com.alura.adopet.api.model.Pet;
 import br.com.alura.adopet.api.repository.AbrigoRepository;
 import br.com.alura.adopet.api.repository.PetRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,9 +55,4 @@ public class AbrigoService {
         }
         return optional.orElseThrow(() -> new ValidacaoException("Abrigo não encontrado"));
     }
-
-
-
-
-
 }

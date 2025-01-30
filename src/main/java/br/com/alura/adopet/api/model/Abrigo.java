@@ -13,13 +13,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "abrigos")
 public class Abrigo {
-    public Abrigo(){}
-
-    public Abrigo(CadastrarAbrigoDto dto){
-        this.nome = dto.nome();
-        this.telefone = dto.telefone();
-        this.email = dto.email();
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +23,14 @@ public class Abrigo {
     private String telefone;
 
     private String email;
+
+    public Abrigo(){}
+
+    public Abrigo(CadastrarAbrigoDto dto){
+        this.nome = dto.nome();
+        this.telefone = dto.telefone();
+        this.email = dto.email();
+    }
 
     @OneToMany(mappedBy = "abrigo", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonManagedReference("abrigo_pets")

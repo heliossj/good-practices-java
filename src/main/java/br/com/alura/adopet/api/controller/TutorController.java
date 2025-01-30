@@ -28,7 +28,6 @@ public class TutorController {
         } catch (ValidacaoException exception){
             return ResponseEntity.badRequest().body(exception.getMessage());
         }
-
     }
 
     @PutMapping
@@ -40,7 +39,5 @@ public class TutorController {
         } catch (ValidacaoException exception){
             return ResponseEntity.badRequest().body(exception.getMessage());
         }
-
     }
-
 }

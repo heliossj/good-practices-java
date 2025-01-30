@@ -51,6 +51,15 @@ public class Adocao {
         return Objects.equals(id, adocao.id);
     }
 
+    public void marcarComoAprovada() {
+        this.status = StatusAdocao.APROVADO;
+    }
+
+    public void marcarComoReprovada(String justificativa) {
+        this.status = StatusAdocao.REPROVADO;
+        this.justificativaStatus = justificativa;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(id);
